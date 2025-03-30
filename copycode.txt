@@ -1,0 +1,102 @@
+
+
+
+
+=====================================================================================
+
+
+
+
+
+"use client";
+import React, { useState } from "react";
+import { Josefin_Sans } from "next/font/google";
+import { FiMenu, FiX } from "react-icons/fi"; // Icons for mobile menu
+import Link from "next/link";
+
+// Load Josefin Sans only for the logo/header name
+const josefinSans = Josefin_Sans({
+  subsets: ["latin"],
+  weight: ["700"],
+});
+
+export default function AppBar() {
+  const [isOpen, setIsOpen] = useState(false); // Toggle mobile menu
+
+  return (
+    <header className="bg-white shadow-md">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        {/* Logo with custom font */}
+        <button
+          className="md:hidden text-gray-700"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <FiX size={28} /> : <FiMenu size={28} />}
+        </button>
+        <h1
+          className={`${josefinSans.className} text-4xl font-bold text-blue-600`}
+        >
+          QuickFix
+        </h1>
+
+        {/* Desktop Menu */}
+        <nav className="hidden md:flex space-x-6 text-1xl font-bold items-center">
+          <Link href="#" className="text-gray-700 hover:text-blue-600">
+            Services
+          </Link>
+          <Link href="#" className="text-gray-700 hover:text-blue-600">
+            Sign up / Log in
+          </Link>
+          <Link
+            href="#"
+            className="text-blue-600 font-bold border-2 border-blue-600 rounded-lg px-4 py-2 transition-all hover:bg-blue-600 hover:text-white"
+          >
+            Become an Expert
+          </Link>
+        </nav>
+
+        {/* Mobile Menu Button (Right-Aligned) */}
+
+      </div>
+
+      {/* Mobile Menu - Sliding in from the Left */}
+     {/* Mobile Menu - Sliding in from the Left */}
+<div
+  className={`fixed top-0 left-0 h-full bg-white shadow-md transform transition-transform duration-300 ease-in-out ${
+    isOpen ? "translate-x-0" : "-translate-x-full"
+  }`}
+>
+  <button
+    className="absolute top-4 right-4 text-gray-700"
+    onClick={() => setIsOpen(false)}
+  >
+    <FiX size={28} />
+  </button>
+
+  <nav className="mt-16">
+    <ul className="flex flex-col items-center space-y-6 px-6 w-full ">
+    <hr className="border-gray-300 w-full" />
+      <li className="w-full ">
+        <Link href="#" className="block text-gray-700 hover:text-blue-600">
+          Home
+        </Link>
+        <hr className="border-gray-300 w-full" />
+      </li>
+      <li className="w-full mb-3">
+        <Link href="#" className="block text-gray-700 hover:text-blue-600">
+          About
+        </Link>
+        <hr className="border-gray-300 my-2 w-full" />
+      </li>
+      <li className="w-full">
+      <Link href="#" className="block text-gray-700 hover:text-blue-600">
+          Become an Expert
+        </Link>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+    </header>
+  );
+}
