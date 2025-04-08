@@ -1,8 +1,11 @@
+import BannerSectionAndSearch from "@/components/Home/BannerSectionAndSearch";
+import Services from "@/components/Home/Services";
 
 export default function Home() {
   return (
     <div>
-      Hi
+<BannerSectionAndSearch/>
+<Services/>
     </div>
   );
 }
