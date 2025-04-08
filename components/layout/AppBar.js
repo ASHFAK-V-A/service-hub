@@ -76,9 +76,8 @@ export default function CustomDrawer() {
               </IconButton>
             )}
             <h1
-              className={`${josefinSans.className} text-[43px] text-blue-600   ${
-                isMobile ? "text-center w-full mt-2" : ""
-              }`}
+              className={`${josefinSans.className} text-[43px] text-blue-600   ${isMobile ? "text-center w-full mt-2" : ""
+                }`}
             >
               QuickFix
             </h1>
