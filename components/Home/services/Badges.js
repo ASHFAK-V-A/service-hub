@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Button, Container, Typography } from "@mui/material";
 import Image from "next/image";
 import ToolImage from "../../../assets/images/tools.webp";
-
+import DoneIcon from '@mui/icons-material/Done';
 function Badges() {
   return (
     <div>
@@ -20,18 +20,19 @@ function Badges() {
       >
         General Furniture Assembly
       </Button>
-      <Container>
+      <Container >
         <Box
-          width={"100%"}
+
           height={"550px"}
           sx={{ backgroundColor: "rgba(186, 231, 255, 0.5)" }}
           mt={4}
           borderRadius={"20px"}
           position="relative"
           alignContent={"center"}
+          className="lg:w-full"
         >
           <Box position="relative" width="100%" display={"flex"} justifyContent={"center"}   >
-            <Image src={ToolImage} height={600} width={900} objectFit="contain" />
+            <Image src={ToolImage} height={600} width={900} objectFit="contain" class="lg:w-[900px]" />
             <Box
               position="absolute"
               left={10}
@@ -40,17 +41,30 @@ function Badges() {
               zIndex={99}
               bgcolor="white"
               p={1}
-              borderRadius="4px"
+              borderRadius="6px"
               width={400}
               height={350}
               textAlign={"center"}
+              display={"flex"}
+              flexDirection={"column"}
+
             >
-              <Typography component={"h1"} fontWeight={"bold"}>Assembly</Typography>
+              <Box pt={6} >
+                <Box display={"flex"} flexDirection={"column"} alignItems={"start"} justifyContent={"start"} mt={2} mb={2} ml={3}>
+                  <Typography component={"h6"} fontWeight={600} fontSize={"24px"} align="start" mb={3}>Assembly</Typography>
+                  <Box display={"flex"} alignItems={"center"} justifyContent={"center"} mb={2} gap={3}>
+                    <DoneIcon /><Typography fontSize={"18px"} textAlign={'start'} lineHeight={1.5} fontWeight={400} >Assemble or disassemble furniture items by unboxing, building, and any cleanup.</Typography>
+                  </Box>
+                  <Box display={"flex"} alignItems={"center"} justifyContent={"center"} mb={2} gap={3}>
+                    <DoneIcon /><Typography fontSize={"18px"} textAlign={'start'} lineHeight={1.5} fontWeight={400}>Assemble or disassemble furniture items by unboxing, building, and any cleanup.</Typography>
+                  </Box>
+                </Box>
+              </Box>
             </Box>
           </Box>
         </Box>
-      </Container>
-    </div>
+      </Container >
+    </div >
   );
 }
 
